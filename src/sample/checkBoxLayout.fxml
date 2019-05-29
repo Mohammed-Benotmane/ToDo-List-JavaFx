@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+     >
+   <children>
+      <CheckBox fx:id="checkBox" mnemonicParsing="false" prefHeight="48.0" prefWidth="127.0" text="CheckBox" textFill="#242424">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </CheckBox>
+   </children>
+   <effect>
+      <DropShadow color="#00000080" />
+   </effect>
+</HBox>

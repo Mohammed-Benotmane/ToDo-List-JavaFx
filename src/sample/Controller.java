@@ -9,11 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -31,9 +29,9 @@ public class Controller extends Application implements Initializable {
     private TextField edit;
 
     @FXML
-    private ListView<Evenement> list;
+    private ListView<CheckBoxElement> list;
 
-    ObservableList<Evenement> observableList= FXCollections.observableArrayList();
+    ObservableList<CheckBoxElement> observableList= FXCollections.observableArrayList();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -45,14 +43,20 @@ public class Controller extends Application implements Initializable {
 
     @FXML
     private void ajouter(Event e){
-        observableList.add(new Evenement(edit.getText(),date.getValue()));
-        list.setItems(observableList);
+        observableList.add(new CheckBoxElement(new CheckBox(),edit.getText()));
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         date.setValue(LocalDate.now());
+        list.setItems(observableList);
+        list.setCellFactory(new Callback<ListView<CheckBoxElement>, ListCell<CheckBoxElement>>() {
+            @Override
+            public ListCell<CheckBoxElement> call(ListView<CheckBoxElement> param) {
+                return new ListCellCustom();
+            }
+        });
     }
 
 
